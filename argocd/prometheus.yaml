@@ -9,9 +9,9 @@ spec:
     repoURL: https://github.com/agalue/tutorial-argocd.git
     targetRevision: HEAD
     path: helm/prometheus
-    helm:
-      valueFiles:
-      - values.yaml
+    # helm:
+    #   valueFiles:
+    #   - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
