@@ -1,0 +1,54 @@
+---
+stack:
+  nameOverride: monitor
+  fullnameOverride: monitor
+  cleanPrometheusOperatorObjectNames: true
+
+  defaultRules:
+    create: true
+    rules:
+      etcd: false
+      kubeControllerManager: false
+      kubeProxy: false
+      kubeScheduler: false
+      nodeExporterAlerting: false
+      nodeExporterRecording: false
+
+  kubeControllerManager:
+    enabled: false
+
+  kubeEtcd:
+    enabled: false
+
+  kubeProxy:
+    enabled: false
+
+  kubeScheduler:
+    enabled: false
+
+  nodeExporter:
+    enabled: false
+
+  alertmanager:
+    enabled: true
+    alertmanagerSpec:
+      resources: null
+
+  prometheus:
+    enabled: true
+    prometheusSpec:
+      scrapeInterval: 30s
+      retention: 30d
+      resources: null
+
+  grafana:
+    enabled: true
+    adminPassword: Adm1n;
+    deploymentStrategy:
+      type: Recreate # Required when using a PVC
+    resources: null
+    persistence:
+      type: pvc
+      enabled: true
+      accessModes: ["ReadWriteOnce"]
+      size: 10Gi
