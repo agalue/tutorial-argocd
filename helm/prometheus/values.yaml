@@ -44,11 +44,4 @@ stack:
   grafana:
     enabled: true
     adminPassword: Adm1n;
-    deploymentStrategy:
-      type: Recreate # Required when using a PVC
     resources: null
-    persistence:
-      type: pvc
-      enabled: true
-      accessModes: ["ReadWriteOnce"]
-      size: 10Gi
