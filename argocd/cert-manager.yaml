@@ -1,20 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: cert-manager
   namespace: argocd
 spec:
-  project: default
+  project: demo
   source:
-    repoURL: https://github.com/agalue/tutorial-argocd.git
-    targetRevision: HEAD
-    path: helm/prometheus
+    chart: cert-manager
+    repoURL: https://charts.jetstack.io
+    targetRevision: v1.9.1
     helm:
-      valueFiles:
-      - values.yaml
+      parameters:
+      - name: installCRDs
+        value: "true"
   destination:
+    namespace: cert-manager
     server: https://kubernetes.default.svc
-    namespace: observability
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
