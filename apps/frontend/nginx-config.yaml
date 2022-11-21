@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: frontend
 data:
-  default.conf: |
+  custom.conf: |
     server {
       listen       80;
       server_name  frontend;
