@@ -34,7 +34,7 @@ spec:
       - name: exporter
         image: nginx/nginx-prometheus-exporter
         args:
-        - -nginx.scrape-uri http://localhost/nginx_status
+        - -nginx.scrape-uri=http://localhost/nginx_status
         ports:
         - name: metrics
           containerPort: 9113
