@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: frontend
 data:
-  nginx.conf: |
+  custom.conf: |
     server {
       listen       8080;
       server_name  frontend;
