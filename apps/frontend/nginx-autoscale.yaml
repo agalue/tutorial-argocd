@@ -1,0 +1,18 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: ingester
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend
+  minReplicaCount: 2
+  maxReplicaCount: 5
+  triggers:
+  - type: prometheus
+    metadata:
+      serverAddress: http://monitor-prometheus.observability.svc:9090
+      metricName: active_series
+      query: sum(rate(nginx_ingress_controller_requests{}[5m]))
+      threshold: '5'
