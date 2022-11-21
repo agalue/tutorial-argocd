@@ -23,6 +23,7 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /etc/nginx/conf.d
+          subPath: custom.conf
         resources:
           limits:
             cpu: 100m
