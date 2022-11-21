@@ -24,6 +24,7 @@ spec:
         - name: config
           mountPath: /etc/nginx/conf.d/custom.conf
           subPath: custom.conf
+          readOnly: true
         resources:
           limits:
             cpu: 100m
