@@ -33,7 +33,10 @@ spec:
       - name: exporter
         image: nginx/nginx-prometheus-exporter
         args:
-        - -nginx.scrape-uri http://localhost:80/metrics
+        - -nginx.scrape-uri http://localhost/nginx_status
+        ports:
+        - name: metrics
+          containerPort: 9113
         resources:
           limits:
             cpu: 50m
