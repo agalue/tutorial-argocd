@@ -3,17 +3,12 @@ kind: ConfigMap
 metadata:
   name: frontend
 data:
-  custom.conf: |
+  nginx.conf: |
     server {
-      listen       80;
+      listen       8080;
       server_name  frontend;
 
-      location / {
-          root   /usr/share/nginx/html;
-          index  index.html index.htm;
-      }
-
-      location /nginx_status {
+      location /status {
           stub_status;
       }
     }
