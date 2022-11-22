@@ -13,6 +13,6 @@ spec:
   - type: prometheus
     metadata:
       serverAddress: http://monitor-prometheus.observability.svc:9090
-      metricName: active_series
+      metricName: nginx_http_requests_total
       query: sum(rate(nginx_http_requests_total{}[1m]))
       threshold: '1'
